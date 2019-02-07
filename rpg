@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static string choice;
+        static string pclass;
+        static string gender;
+        static string strength;
+        static string magic;
+        static string other;
+        
+        static void Main(string[] args)
+        {
+            Console.WriteLine("RPG Character Creator");
+            while (true)
+            {
+                Console.Write("Do you want a random character (1) or chose some presets (2)  ");
+                choice = Console.ReadLine();
+                if (choice == "Random" || choice == "random" || choice == "1")
+                {
+                    rand();
+                    break;
+                }
+                if (choice == "Presets" || choice == "presets" || choice == "2")
+                {
+                    preset();
+                    break;
+                }
+                Console.WriteLine(" THATS NOT AN OPTION SILLY !! ");
+            }
+
+        }
+        static void rand()
+        {            
+            Random rnd = new Random();
+            num1 = rnd.Next(1, 10);
+            pclass = Convert.ToInt32(Console.ReadLine());            
+
+            Console.ReadLine();
+        }
+        static void preset()
+        {
+            Console.WriteLine("wrorng awnser !");
+            Console.ReadLine();
+        }
+    }
+}
