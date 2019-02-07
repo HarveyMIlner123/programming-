@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int aveg;
+            int num1;
+            int num2;
+            int num3;
+            int num4;
+            
+            while (true)
+            {
+
+                //takes an inout of numbers 
+                Console.WriteLine("Average Number Program");
+                Console.Write("Enter the first number : ");
+                num1 = Convert.ToInt32(Console.ReadLine());
+                
+                Console.Write("Enter the second number : ");
+                num2 = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Enter the third number : ");
+                num3 = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Enter the fourth number : ");
+                num4 = Convert.ToInt32(Console.ReadLine());
+
+                //works out the average 
+                int all = num1 + num2 + num3 + num4 ;
+                aveg = all / 4;
+
+                //write to file
+                Console.WriteLine("you got an average of " + aveg);
+                Console.ReadLine();
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\harve\Documents\averages.txt", true))
+                {
+                    file.WriteLine(all + " Average = " + aveg);
+                }
+
+                Console.Write("would you like to go again ? ");
+                string again = Console.ReadLine();
+                if (again == "NO" || again == "no")
+                {                    
+                    break;
+                }
+            }
+            // read from file         
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\harve\Documents\averages.txt");
+            foreach (string line in lines)
+            {
+                Console.WriteLine("Averages " + line);
+            }
+            Console.ReadLine();
+
+            Console.WriteLine("press any button to end");
+
+        }
+    }
+}
